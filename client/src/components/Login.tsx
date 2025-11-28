@@ -1,5 +1,13 @@
-import { Box, Button, Paper, TextField, Typography } from "@mui/material";
-import { ThemeProvider } from "@mui/material/styles";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import {
+  Box,
+  Button,
+  IconButton,
+  Paper,
+  TextField,
+  Typography,
+} from "@mui/material";
+import { ThemeProvider, alpha } from "@mui/material/styles";
 import { useEffect, useState } from "react";
 import { useUser } from "../context/UserContext";
 import { fetchTierByUsername } from "../services/api";
@@ -305,6 +313,29 @@ const Login = () => {
             </Typography>
           </Box>
         </Paper>
+
+        {/* GitHub Link */}
+        <IconButton
+          component="a"
+          href="https://github.com/l145dev/TieringMachine"
+          target="_blank"
+          rel="noopener noreferrer"
+          sx={{
+            position: "fixed",
+            bottom: 20,
+            right: 20,
+            color: "primary.main",
+            opacity: 0.8,
+            "&:hover": {
+              opacity: 1,
+              color: "primary.main",
+              bgcolor: (theme) => alpha(theme.palette.primary.main, 0.1),
+            },
+            zIndex: 1000,
+          }}
+        >
+          <GitHubIcon fontSize="large" />
+        </IconButton>
       </Box>
     </ThemeProvider>
   );
