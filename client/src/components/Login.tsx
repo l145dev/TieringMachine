@@ -1,0 +1,313 @@
+import { Box, Button, Paper, TextField, Typography } from "@mui/material";
+import { ThemeProvider } from "@mui/material/styles";
+import { useEffect, useState } from "react";
+import { useUser } from "../context/UserContext";
+import { fetchTierByUsername } from "../services/api";
+import { defaultTheme, eliteTheme } from "../theme";
+import Ads from "./Ads";
+import CaptchaDialog from "./CaptchaDialog"; // Import the new component
+
+const Login = () => {
+  const { login } = useUser();
+  const [identity, setIdentity] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [tier, setTier] = useState<"dreg" | "citizen" | "elite" | null>(null);
+
+  // Captcha State
+  const [captchaOpen, setCaptchaOpen] = useState(false);
+  const [requiredCaptchas, setRequiredCaptchas] = useState(0);
+
+  // Debounce tier checking by 500ms
+  useEffect(() => {
+    if (!identity.trim()) {
+      setTier(null);
+      return;
+    }
+
+    const timeoutId = setTimeout(async () => {
+      try {
+        const response = await fetchTierByUsername(identity);
+        setTier(response.tier);
+      } catch (err) {
+        console.error("Failed to fetch tier:", err);
+        setTier(null);
+      }
+    }, 500);
+
+    return () => clearTimeout(timeoutId);
+  }, [identity]);
+
+  const handlePreSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+
+    // Determine verification difficulty based on tier
+    if (tier === "elite") {
+      // No verification for elite
+      await performLogin();
+    } else if (tier === "citizen") {
+      // 1 Captcha for citizens
+      setRequiredCaptchas(1);
+      setCaptchaOpen(true);
+    } else {
+      // 3 Captchas for dregs (or unknown users assuming worst case)
+      setRequiredCaptchas(3);
+      setCaptchaOpen(true);
+    }
+  };
+
+  const performLogin = async () => {
+    setCaptchaOpen(false);
+    setLoading(true);
+
+    try {
+      const success = await login(identity, password);
+      if (!success) {
+        setError("Authentication failed");
+        setLoading(false);
+      }
+    } catch (err) {
+      setError("An error occurred");
+      setLoading(false);
+    }
+  };
+
+  const isElite = tier === "elite";
+  const currentTheme = isElite ? eliteTheme : defaultTheme;
+  const showAds = tier === "citizen" || tier === "dreg";
+
+  return (
+    <ThemeProvider theme={currentTheme}>
+      <Box
+        sx={{
+          display: "flex",
+          height: "100vh",
+          width: "100vw",
+          bgcolor: "background.default",
+        }}
+      >
+        {/* Left Column - Ads */}
+        {showAds && (
+          <Box
+            sx={{
+              width: "20%",
+              borderRight: "1px solid",
+              borderColor: "divider",
+              p: 2,
+              overflow: "hidden",
+            }}
+          >
+            <Ads />
+          </Box>
+        )}
+
+        {/* Middle Column - Login Form */}
+        <Box
+          sx={{
+            width: showAds ? "60%" : "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            borderRight: showAds ? "1px solid" : "none",
+            borderColor: "divider",
+            p: 4,
+          }}
+        >
+          <Paper
+            elevation={0}
+            sx={{
+              maxWidth: 500,
+              width: "100%",
+              p: 4,
+              border: "2px solid",
+              borderColor: "primary.main",
+              bgcolor: "background.paper",
+            }}
+          >
+            <Typography
+              variant="h3"
+              component="h1"
+              align="center"
+              gutterBottom
+              sx={{
+                fontWeight: 700,
+                color: "primary.main",
+                textTransform: "uppercase",
+                letterSpacing: "0.2em",
+                mb: 4,
+              }}
+            >
+              Access Terminal
+            </Typography>
+
+            <form onSubmit={handlePreSubmit}>
+              <TextField
+                fullWidth
+                label="Identity"
+                value={identity}
+                onChange={(e) => setIdentity(e.target.value)}
+                required
+                sx={{
+                  mb: 3,
+                  "& .MuiOutlinedInput-root": {
+                    "&.Mui-focused fieldset": {
+                      borderColor: "primary.main",
+                    },
+                  },
+                }}
+                InputLabelProps={{
+                  sx: { textTransform: "uppercase", letterSpacing: "1px" },
+                }}
+              />
+
+              <TextField
+                fullWidth
+                label="Password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                sx={{
+                  mb: 4,
+                  "& .MuiOutlinedInput-root": {
+                    "&.Mui-focused fieldset": {
+                      borderColor: "primary.main",
+                    },
+                  },
+                }}
+                InputLabelProps={{
+                  sx: { textTransform: "uppercase", letterSpacing: "1px" },
+                }}
+              />
+
+              {error && (
+                <Typography
+                  color="error"
+                  align="center"
+                  sx={{ mb: 2, textTransform: "uppercase" }}
+                >
+                  {error}
+                </Typography>
+              )}
+
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                size="large"
+                disabled={loading}
+                sx={{
+                  py: 1.5,
+                  fontSize: "1.1rem",
+                  fontWeight: 700,
+                  letterSpacing: "2px",
+                  textTransform: "uppercase",
+                }}
+              >
+                {loading ? "Authenticating..." : "Log In"}
+              </Button>
+            </form>
+
+            <Typography
+              variant="caption"
+              align="center"
+              display="block"
+              sx={{
+                mt: 4,
+                color: "text.secondary",
+                textTransform: "uppercase",
+                letterSpacing: "1px",
+              }}
+            >
+              All access monitored • Compliance required
+            </Typography>
+          </Paper>
+        </Box>
+
+        {/* Right Column - Ads */}
+        {showAds && (
+          <Box
+            sx={{
+              width: "20%",
+              p: 2,
+              overflow: "hidden",
+            }}
+          >
+            <Ads />
+          </Box>
+        )}
+
+        <CaptchaDialog
+          open={captchaOpen}
+          requiredCount={requiredCaptchas}
+          onComplete={performLogin}
+          onCancel={() => setCaptchaOpen(false)}
+        />
+
+        {/* Demo Credentials Card */}
+        <Paper
+          elevation={3}
+          sx={{
+            position: "fixed",
+            bottom: 20,
+            left: 20,
+            p: 2,
+            border: "1px solid",
+            borderColor: "primary.main",
+            bgcolor: "background.paper",
+            maxWidth: 250,
+            opacity: 0.9,
+            zIndex: 1000,
+          }}
+        >
+          <Typography
+            variant="subtitle2"
+            color="primary"
+            gutterBottom
+            sx={{
+              textTransform: "uppercase",
+              fontWeight: "bold",
+              letterSpacing: "1px",
+            }}
+          >
+            Demo Access
+          </Typography>
+          <Box sx={{ mb: 1.5 }}>
+            <Typography
+              variant="caption"
+              display="block"
+              sx={{ color: "text.secondary", fontWeight: "bold" }}
+            >
+              ELITE TIER
+            </Typography>
+            <Typography variant="body2" sx={{ fontFamily: "monospace" }}>
+              ID: KarenFromHR
+            </Typography>
+            <Typography variant="body2" sx={{ fontFamily: "monospace" }}>
+              PW: 1234
+            </Typography>
+          </Box>
+          <Box>
+            <Typography
+              variant="caption"
+              display="block"
+              sx={{ color: "text.secondary", fontWeight: "bold" }}
+            >
+              DREG TIER
+            </Typography>
+            <Typography variant="body2" sx={{ fontFamily: "monospace" }}>
+              ID: PrinterKiller
+            </Typography>
+            <Typography variant="body2" sx={{ fontFamily: "monospace" }}>
+              PW: 1234
+            </Typography>
+          </Box>
+        </Paper>
+      </Box>
+    </ThemeProvider>
+  );
+};
+
+export default Login;

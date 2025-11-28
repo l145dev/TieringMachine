@@ -1,0 +1,175 @@
+// const BASE_URL = "http://localhost:8080/api"; // for development
+const BASE_URL =
+  "https://tiering-machine-server-b9emhkaqdfh3fjge.switzerlandnorth-01.azurewebsites.net/api";
+
+const customFetch = async (url: string, options: RequestInit = {}) => {
+  const response = await fetch(url, options);
+  if (response.status === 403) {
+    window.dispatchEvent(new CustomEvent("http-403"));
+  }
+  return response;
+};
+
+export interface ApiEvent {
+  id: number;
+  title: string;
+  description: string;
+  eventDate: string;
+  reward: number;
+  creator: {
+    id: number;
+    username: string;
+    tier: {
+      id: number;
+      name: string;
+    };
+  };
+}
+
+export interface ApiBet {
+  id: number;
+  description: string;
+  creator: string | { username: string };
+  target: string;
+  wagerPoints: number;
+  payoutPoints: number;
+  lossPoints: number;
+  actualOutcome: boolean | null;
+  time: string;
+}
+
+export interface ApiLeaderboardEntry {
+  id: number;
+  rank: number;
+  name: string;
+  points: number;
+}
+
+export interface LoginRequest {
+  citizenNumber: string;
+  password: string;
+}
+
+export interface LoginResponse {
+  id: number;
+  rank: number;
+  username: string;
+  total_points: number;
+  tier: string;
+}
+
+export interface ReportRequest {
+  targetId: number;
+  reason: string;
+}
+
+export interface ReportResponse {
+  target: string;
+  reporter: string;
+  target_points_lost: number;
+  report_points_earned: number;
+}
+
+export interface LogEntry {
+  id: number;
+  username: string;
+  details: string;
+  logTime: string;
+}
+
+export interface TierResponse {
+  tier: "dreg" | "citizen" | "elite" | null;
+}
+
+export const fetchEvents = async (): Promise<ApiEvent[]> => {
+  const response = await customFetch(`${BASE_URL}/events`);
+  if (!response.ok) {
+    throw new Error("Failed to fetch events");
+  }
+  return response.json();
+};
+
+export const fetchBets = async (): Promise<ApiBet[]> => {
+  const response = await customFetch(`${BASE_URL}/bets`);
+  if (!response.ok) {
+    throw new Error("Failed to fetch bets");
+  }
+  return response.json();
+};
+
+export const fetchLeaderboard = async (): Promise<ApiLeaderboardEntry[]> => {
+  const response = await customFetch(`${BASE_URL}/leaderboard`);
+  if (!response.ok) {
+    throw new Error("Failed to fetch leaderboard");
+  }
+  return response.json();
+};
+
+export const loginUser = async (
+  credentials: LoginRequest
+): Promise<LoginResponse> => {
+  const response = await customFetch(`${BASE_URL}/login`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(credentials),
+  });
+  if (!response.ok) {
+    throw new Error("Login failed");
+  }
+  return response.json();
+};
+
+export const reportCitizen = async (
+  reporterId: number,
+  data: ReportRequest
+): Promise<ReportResponse> => {
+  const response = await customFetch(`${BASE_URL}/report`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Citizen-Id": reporterId.toString(),
+    },
+    body: JSON.stringify(data),
+  });
+  if (!response.ok) {
+    throw new Error("Report failed");
+  }
+  return response.json();
+};
+
+export const fetchUserLogs = async (userId: number): Promise<LogEntry[]> => {
+  const response = await customFetch(`${BASE_URL}/logs/user/${userId}`);
+  if (!response.ok) {
+    throw new Error("Failed to fetch user logs");
+  }
+  return response.json();
+};
+
+export const fetchTierByUsername = async (
+  username: string
+): Promise<TierResponse> => {
+  const response = await customFetch(
+    `${BASE_URL}/tier?username=${encodeURIComponent(username)}`
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch tier");
+  }
+  return response.json();
+};
+export const updateScore = async (citizenId: number, score: number) => {
+  const response = await customFetch(
+    `${BASE_URL}/bets/update-score?citizenId=${citizenId}&score=${score}`,
+    {
+      method: "POST",
+    }
+  );
+  if (!response.ok) {
+    throw new Error("Failed to set debug score");
+  }
+  // Return empty object if response has no content
+  const text = await response.text();
+  return text ? JSON.parse(text) : {};
+};
