@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "userId": 4,
+    "creatorId": 1,
+    "targetId": 10,
+    "wagerPoints": 5000,
+    "betDetails": "LayoffSurvivor mentions \"quiet quitting\" in standup before Christmas",
+    "actualOutcome": true,
+    "payoutPoints": 8000,
+    "lossPoints": -5000,
+    "resolutionDate": "2026-01-20"
+  },
+  {
+    "id": 2,
+    "userId": 7,
+    "creatorId": 2,
+    "targetId": 7,
+    "wagerPoints": 3000,
+    "betDetails": "CoffeeAddict will microwave fish this month",
+    "actualOutcome": true,
+    "payoutPoints": 4800,
+    "lossPoints": -3000,
+    "resolutionDate": "2026-02-15"
+  },
+  {
+    "id": 3,
+    "userId": 9,
+    "creatorId": 4,
+    "targetId": 2,
+    "wagerPoints": 7000,
+    "betDetails": "KarenFromHR uses the crying emoji in Slack about deadlines",
+    "actualOutcome": true,
+    "payoutPoints": 11200,
+    "lossPoints": -7000,
+    "resolutionDate": "2025-11-28"
+  },
+  {
+    "id": 4,
+    "userId": 13,
+    "creatorId": 8,
+    "targetId": 13,
+    "wagerPoints": 1500,
+    "betDetails": "OutlookWarrior replies-all to a 500+ recipient thread",
+    "actualOutcome": true,
+    "payoutPoints": 2400,
+    "lossPoints": -1500,
+    "resolutionDate": "2025-11-10"
+  },
+  {
+    "id": 5,
+    "userId": 2,
+    "creatorId": 1,
+    "targetId": 15,
+    "wagerPoints": 10000,
+    "betDetails": "MuteButtonDenier gets muted by host >3 times in one town hall",
+    "actualOutcome": true,
+    "payoutPoints": 16000,
+    "lossPoints": -10000,
+    "resolutionDate": "2026-01-15"
+  },
+  {
+    "id": 6,
+    "userId": 3,
+    "creatorId": 2,
+    "targetId": 12,
+    "wagerPoints": 6000,
+    "betDetails": "ReplyAllOffender hits \"Reply All\" on a calendar invite",
+    "actualOutcome": true,
+    "payoutPoints": 9600,
+    "lossPoints": -6000,
+    "resolutionDate": "2025-11-22"
+  },
+  {
+    "id": 7,
+    "userId": 14,
+    "creatorId": 3,
+    "targetId": 6,
+    "wagerPoints": 4500,
+    "betDetails": "ExcelNinja admits to using mouse instead of shortcuts",
+    "actualOutcome": true,
+    "payoutPoints": 7200,
+    "lossPoints": -4500,
+    "resolutionDate": "2026-01-25"
+  },
+  {
+    "id": 8,
+    "userId": 15,
+    "creatorId": 1,
+    "targetId": 13,
+    "wagerPoints": 800,
+    "betDetails": "OutlookWarrior's signature still says \"Sent from my iPhone\" on desktop",
+    "actualOutcome": true,
+    "payoutPoints": 1280,
+    "lossPoints": -800,
+    "resolutionDate": "2026-02-10"
+  },
+  {
+    "id": 9,
+    "userId": 1,
+    "creatorId": 9,
+    "targetId": 3,
+    "wagerPoints": 12000,
+    "betDetails": "BigDave gets caught using ChatGPT for performance reviews",
+    "actualOutcome": true,
+    "payoutPoints": 19200,
+    "lossPoints": -12000,
+    "resolutionDate": "2026-03-25"
+  }
+]

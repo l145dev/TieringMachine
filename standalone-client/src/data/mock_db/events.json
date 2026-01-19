@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "creatorId": 1,
+    "title": "Someone says \"synergy\" unironically in the All-Hands",
+    "eventDate": "2025-12-05",
+    "reward": -5000,
+    "description": "Must be audible to at least 50 people. Bonus -2000 points if said by C-level."
+  },
+  {
+    "id": 2,
+    "creatorId": 2,
+    "title": "HR sends a wellness email the same week layoffs are announced",
+    "eventDate": "2025-12-20",
+    "reward": -8000,
+    "description": "Screenshot required. Double points if it mentions \"resilience\"."
+  },
+  {
+    "id": 3,
+    "creatorId": 3,
+    "title": "A manager uses the phrase \"do more with less\" in 1:1",
+    "eventDate": "2025-11-28",
+    "reward": -3500,
+    "description": "Recording or witness signature required."
+  },
+  {
+    "id": 4,
+    "creatorId": 4,
+    "title": "Fire alarm goes off and nobody leaves their desk",
+    "eventDate": "2026-01-15",
+    "reward": -10000,
+    "description": "Video evidence mandatory. Bonus if someone yells \"It's just a drill!\"."
+  },
+  {
+    "id": 5,
+    "creatorId": 5,
+    "title": "Someone cries in the bathroom (caught on audio)",
+    "eventDate": "2025-12-12",
+    "reward": -6000,
+    "description": "Discreet recording only. Identity protected."
+  },
+  {
+    "id": 6,
+    "creatorId": 6,
+    "title": "The coffee machine dies permanently",
+    "eventDate": "2025-12-18",
+    "reward": -7000,
+    "description": "Must remain broken >5 business days. Funeral service encouraged."
+  },
+  {
+    "id": 7,
+    "creatorId": 7,
+    "title": "CEO posts LinkedIn thought-leadership about \"work-life balance\"",
+    "eventDate": "2025-12-24",
+    "reward": -9000,
+    "description": "While simultaneously sending 10pm emails. Screenshot combo = 1.5x multiplier."
+  },
+  {
+    "id": 8,
+    "creatorId": 8,
+    "title": "Mandatory fun team-building event announced",
+    "eventDate": "2026-01-08",
+    "reward": -4500,
+    "description": "Extra -3000 if it's trust falls or escape room."
+  },
+  {
+    "id": 9,
+    "creatorId": 9,
+    "title": "Someone gets promoted who started after you",
+    "eventDate": "2026-02-01",
+    "reward": -12000,
+    "description": "Org chart proof required."
+  },
+  {
+    "id": 10,
+    "creatorId": 10,
+    "title": "IT sends company-wide email about phishing... that is itself a phishing test",
+    "eventDate": "2025-12-10",
+    "reward": -6500,
+    "description": "Double points if >20 people fail."
+  },
+  {
+    "id": 11,
+    "creatorId": 11,
+    "title": "The office plants finally die from neglect",
+    "eventDate": "2026-01-20",
+    "reward": -4000,
+    "description": "Time-lapse encouraged."
+  },
+  {
+    "id": 12,
+    "creatorId": 12,
+    "title": "A senior leader says \"We're a family\" right before RIF",
+    "eventDate": "2025-12-16",
+    "reward": -15000,
+    "description": "Highest single payout event of Q4."
+  },
+  {
+    "id": 13,
+    "creatorId": 1,
+    "title": "Someone brings a baby to \"Take Your Child to Work Day\" and it screams through a client call",
+    "eventDate": "2026-04-01",
+    "reward": -5500,
+    "description": "Audio proof required."
+  },
+  {
+    "id": 14,
+    "creatorId": 4,
+    "title": "The intern is asked to book the holiday party at the same venue as last year's layoffs",
+    "eventDate": "2025-12-03",
+    "reward": -7500,
+    "description": "Booking confirmation screenshot."
+  },
+  {
+    "id": 15,
+    "creatorId": 6,
+    "title": "The thermostat war reaches actual physical sabotage",
+    "eventDate": "2026-01-30",
+    "reward": -11000,
+    "description": "Evidence of tampering required. No injuries."
+  }
+]

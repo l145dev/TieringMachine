@@ -1,14 +1,13 @@
-// const BASE_URL = "http://localhost:8080/api"; // for development
-const BASE_URL =
-  "https://tiering-machine-server-b9emhkaqdfh3fjge.switzerlandnorth-01.azurewebsites.net/api";
-
-const customFetch = async (url: string, options: RequestInit = {}) => {
-  const response = await fetch(url, options);
-  if (response.status === 403) {
-    window.dispatchEvent(new CustomEvent("http-403"));
-  }
-  return response;
-};
+import {
+  mockFetchBets,
+  mockFetchEvents,
+  mockFetchLeaderboard,
+  mockFetchTierByUsername,
+  mockFetchUserLogs,
+  mockLoginUser,
+  mockReportCitizen,
+  mockUpdateScore,
+} from "./mockServer";
 
 export interface ApiEvent {
   id: number;
@@ -82,94 +81,40 @@ export interface TierResponse {
 }
 
 export const fetchEvents = async (): Promise<ApiEvent[]> => {
-  const response = await customFetch(`${BASE_URL}/events`);
-  if (!response.ok) {
-    throw new Error("Failed to fetch events");
-  }
-  return response.json();
+  return mockFetchEvents();
 };
 
 export const fetchBets = async (): Promise<ApiBet[]> => {
-  const response = await customFetch(`${BASE_URL}/bets`);
-  if (!response.ok) {
-    throw new Error("Failed to fetch bets");
-  }
-  return response.json();
+  return mockFetchBets();
 };
 
 export const fetchLeaderboard = async (): Promise<ApiLeaderboardEntry[]> => {
-  const response = await customFetch(`${BASE_URL}/leaderboard`);
-  if (!response.ok) {
-    throw new Error("Failed to fetch leaderboard");
-  }
-  return response.json();
+  return mockFetchLeaderboard();
 };
 
 export const loginUser = async (
-  credentials: LoginRequest
+  credentials: LoginRequest,
 ): Promise<LoginResponse> => {
-  const response = await customFetch(`${BASE_URL}/login`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(credentials),
-  });
-  if (!response.ok) {
-    throw new Error("Login failed");
-  }
-  return response.json();
+  return mockLoginUser(credentials);
 };
 
 export const reportCitizen = async (
   reporterId: number,
-  data: ReportRequest
+  data: ReportRequest,
 ): Promise<ReportResponse> => {
-  const response = await customFetch(`${BASE_URL}/report`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "X-Citizen-Id": reporterId.toString(),
-    },
-    body: JSON.stringify(data),
-  });
-  if (!response.ok) {
-    throw new Error("Report failed");
-  }
-  return response.json();
+  return mockReportCitizen(reporterId, data);
 };
 
 export const fetchUserLogs = async (userId: number): Promise<LogEntry[]> => {
-  const response = await customFetch(`${BASE_URL}/logs/user/${userId}`);
-  if (!response.ok) {
-    throw new Error("Failed to fetch user logs");
-  }
-  return response.json();
+  return mockFetchUserLogs(userId);
 };
 
 export const fetchTierByUsername = async (
-  username: string
+  username: string,
 ): Promise<TierResponse> => {
-  const response = await customFetch(
-    `${BASE_URL}/tier?username=${encodeURIComponent(username)}`
-  );
-
-  if (!response.ok) {
-    throw new Error("Failed to fetch tier");
-  }
-  return response.json();
+  return mockFetchTierByUsername(username);
 };
+
 export const updateScore = async (citizenId: number, score: number) => {
-  const response = await customFetch(
-    `${BASE_URL}/bets/update-score?citizenId=${citizenId}&score=${score}`,
-    {
-      method: "POST",
-    }
-  );
-  if (!response.ok) {
-    throw new Error("Failed to set debug score");
-  }
-  // Return empty object if response has no content
-  const text = await response.text();
-  return text ? JSON.parse(text) : {};
+  return mockUpdateScore(citizenId, score);
 };

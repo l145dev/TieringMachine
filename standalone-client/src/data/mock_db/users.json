@@ -1,0 +1,107 @@
+[
+  {
+    "id": 1,
+    "username": "CryptoWhale69",
+    "tierId": 3,
+    "totalPoints": 125000,
+    "password": "1234"
+  },
+  {
+    "id": 2,
+    "username": "KarenFromHR",
+    "tierId": 3,
+    "totalPoints": 84200,
+    "password": "1234"
+  },
+  {
+    "id": 3,
+    "username": "BigDave",
+    "tierId": 3,
+    "totalPoints": 76900,
+    "password": "1234"
+  },
+  {
+    "id": 4,
+    "username": "SilentSniper",
+    "tierId": 2,
+    "totalPoints": 45300,
+    "password": "1234"
+  },
+  {
+    "id": 5,
+    "username": "TaxEvader420",
+    "tierId": 2,
+    "totalPoints": 42100,
+    "password": "1234"
+  },
+  {
+    "id": 6,
+    "username": "ExcelNinja",
+    "tierId": 2,
+    "totalPoints": 39800,
+    "password": "1234"
+  },
+  {
+    "id": 7,
+    "username": "CoffeeAddict",
+    "tierId": 2,
+    "totalPoints": 35700,
+    "password": "1234"
+  },
+  {
+    "id": 8,
+    "username": "PPT_God",
+    "tierId": 2,
+    "totalPoints": 31200,
+    "password": "1234"
+  },
+  {
+    "id": 9,
+    "username": "ZoomBackgroundPro",
+    "tierId": 2,
+    "totalPoints": 28900,
+    "password": "1234"
+  },
+  {
+    "id": 10,
+    "username": "LayoffSurvivor",
+    "tierId": 1,
+    "totalPoints": 8780,
+    "password": "1234"
+  },
+  {
+    "id": 11,
+    "username": "InternFromHell",
+    "tierId": 1,
+    "totalPoints": 8200,
+    "password": "1234"
+  },
+  {
+    "id": 12,
+    "username": "ReplyAllOffender",
+    "tierId": 1,
+    "totalPoints": 6300,
+    "password": "1234"
+  },
+  {
+    "id": 13,
+    "username": "OutlookWarrior",
+    "tierId": 1,
+    "totalPoints": 4100,
+    "password": "1234"
+  },
+  {
+    "id": 14,
+    "username": "PrinterKiller",
+    "tierId": 1,
+    "totalPoints": 1900,
+    "password": "1234"
+  },
+  {
+    "id": 15,
+    "username": "MuteButtonDenier",
+    "tierId": 1,
+    "totalPoints": 800,
+    "password": "1234"
+  }
+]

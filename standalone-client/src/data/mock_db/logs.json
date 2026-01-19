@@ -1,0 +1,242 @@
+[
+  {
+    "id": 1,
+    "userId": 1,
+    "details": "Successful login from 192.168.1.20",
+    "logTime": "2025-11-20 09:15:00"
+  },
+  {
+    "id": 2,
+    "userId": 2,
+    "details": "Bet ID 8: Zuckerburg pulls another tech demo fail",
+    "logTime": "2025-11-21 14:30:00"
+  },
+  {
+    "id": 3,
+    "userId": 1,
+    "details": "Changed tier to elite",
+    "logTime": "2025-11-21 16:45:00"
+  },
+  {
+    "id": 4,
+    "userId": 3,
+    "details": "Joined Unhinged Stunt Gala",
+    "logTime": "2025-11-22 10:00:00"
+  },
+  {
+    "id": 5,
+    "userId": 1,
+    "details": "Accessed executive surveillance dashboard",
+    "logTime": "2025-11-15 08:30:00"
+  },
+  {
+    "id": 6,
+    "userId": 1,
+    "details": "Reviewed quarterly termination candidates list",
+    "logTime": "2025-11-15 10:15:00"
+  },
+  {
+    "id": 7,
+    "userId": 1,
+    "details": "Approved budget cut proposal for IT department",
+    "logTime": "2025-11-15 14:20:00"
+  },
+  {
+    "id": 8,
+    "userId": 1,
+    "details": "Placed bet: CFO will announce layoffs before holidays",
+    "logTime": "2025-11-16 09:45:00"
+  },
+  {
+    "id": 9,
+    "userId": 1,
+    "details": "Accessed restricted salary database",
+    "logTime": "2025-11-16 11:30:00"
+  },
+  {
+    "id": 10,
+    "userId": 1,
+    "details": "Reported employee #247 for \"insufficient enthusiasm\"",
+    "logTime": "2025-11-16 15:00:00"
+  },
+  {
+    "id": 11,
+    "userId": 1,
+    "details": "Attended closed-door restructuring meeting",
+    "logTime": "2025-11-17 08:00:00"
+  },
+  {
+    "id": 12,
+    "userId": 1,
+    "details": "Flagged 5 employees for performance review",
+    "logTime": "2025-11-17 13:25:00"
+  },
+  {
+    "id": 13,
+    "userId": 2,
+    "details": "Reported 3 citizens for productivity violations",
+    "logTime": "2025-11-16 11:20:00"
+  },
+  {
+    "id": 14,
+    "userId": 2,
+    "details": "Approved expense report: $5000 team dinner",
+    "logTime": "2025-11-19 16:30:00"
+  },
+  {
+    "id": 15,
+    "userId": 2,
+    "details": "Fast-tracked promotion bypass approval",
+    "logTime": "2025-11-22 10:45:00"
+  },
+  {
+    "id": 16,
+    "userId": 3,
+    "details": "Claimed VIP parking spot allocation",
+    "logTime": "2025-11-17 07:45:00"
+  },
+  {
+    "id": 17,
+    "userId": 3,
+    "details": "Placed high-stakes bet on quarterly layoffs",
+    "logTime": "2025-11-20 13:15:00"
+  },
+  {
+    "id": 18,
+    "userId": 3,
+    "details": "Accessed restricted HR termination database",
+    "logTime": "2025-11-23 15:20:00"
+  },
+  {
+    "id": 19,
+    "userId": 4,
+    "details": "Submitted weekly status report on time",
+    "logTime": "2025-11-15 17:00:00"
+  },
+  {
+    "id": 20,
+    "userId": 4,
+    "details": "Attended team standup meeting",
+    "logTime": "2025-11-21 10:00:00"
+  },
+  {
+    "id": 21,
+    "userId": 5,
+    "details": "Joined mandatory compliance training",
+    "logTime": "2025-11-16 10:30:00"
+  },
+  {
+    "id": 22,
+    "userId": 5,
+    "details": "Filed expense report: $42 parking",
+    "logTime": "2025-11-22 14:15:00"
+  },
+  {
+    "id": 23,
+    "userId": 6,
+    "details": "Created 47 pivot tables in single Excel session",
+    "logTime": "2025-11-17 12:00:00"
+  },
+  {
+    "id": 24,
+    "userId": 6,
+    "details": "Completed keyboard shortcut certification",
+    "logTime": "2025-11-23 16:00:00"
+  },
+  {
+    "id": 25,
+    "userId": 7,
+    "details": "Coffee machine usage: 8 cups today",
+    "logTime": "2025-11-18 15:45:00"
+  },
+  {
+    "id": 26,
+    "userId": 7,
+    "details": "Requested additional coffee budget approval",
+    "logTime": "2025-11-23 08:30:00"
+  },
+  {
+    "id": 27,
+    "userId": 8,
+    "details": "PowerPoint deck approved by manager",
+    "logTime": "2025-11-19 11:30:00"
+  },
+  {
+    "id": 28,
+    "userId": 9,
+    "details": "Changed Zoom background to corporate logo",
+    "logTime": "2025-11-20 09:20:00"
+  },
+  {
+    "id": 29,
+    "userId": 10,
+    "details": "Failed to login 3 times - account flagged",
+    "logTime": "2025-11-15 09:45:00"
+  },
+  {
+    "id": 30,
+    "userId": 10,
+    "details": "Missed mandatory sensitivity training deadline",
+    "logTime": "2025-11-21 17:00:00"
+  },
+  {
+    "id": 31,
+    "userId": 11,
+    "details": "Submitted intern expense: suspicious charges",
+    "logTime": "2025-11-16 13:20:00"
+  },
+  {
+    "id": 32,
+    "userId": 11,
+    "details": "Flagged for suspicious web browsing history",
+    "logTime": "2025-11-22 12:45:00"
+  },
+  {
+    "id": 33,
+    "userId": 12,
+    "details": "Reply-all incident reported by 47 colleagues",
+    "logTime": "2025-11-17 11:10:00"
+  },
+  {
+    "id": 34,
+    "userId": 12,
+    "details": "Email etiquette violation: 4th offense this month",
+    "logTime": "2025-11-23 09:30:00"
+  },
+  {
+    "id": 35,
+    "userId": 13,
+    "details": "Outlook signature violation detected",
+    "logTime": "2025-11-18 14:50:00"
+  },
+  {
+    "id": 36,
+    "userId": 13,
+    "details": "Desk audit failed: unauthorized personal items",
+    "logTime": "2025-11-23 13:20:00"
+  },
+  {
+    "id": 37,
+    "userId": 14,
+    "details": "Printer jam caused by unauthorized paper size",
+    "logTime": "2025-11-19 10:15:00"
+  },
+  {
+    "id": 38,
+    "userId": 14,
+    "details": "IT ticket: \"Printer won't stop making grinding noise\"",
+    "logTime": "2025-11-23 16:45:00"
+  },
+  {
+    "id": 39,
+    "userId": 15,
+    "details": "Muted by host in all-hands meeting",
+    "logTime": "2025-11-20 15:30:00"
+  },
+  {
+    "id": 40,
+    "userId": 15,
+    "details": "Zoom meeting participation: 0% - camera off entire call",
+    "logTime": "2025-11-23 11:00:00"
+  }
+]
